@@ -15,7 +15,13 @@ service: NodeJS-P16-Serverless-MongoDB
 
 custom:
   tableName: 'account-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
 
+plugins:
+  - serverless-offline
+  - serverless-dynamodb-local
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
